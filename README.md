@@ -4,6 +4,14 @@ $\text{Finally, the uploaded image was passed into the trained model through pre
 
 $我们基于minst数据集训练出适用于手写体识别的模型$
 
+
+# instructions
+
+$\text{just simply run the relevant model file} $
+
+$\text{if you want cnn,just run CNN.py}$
+
+
 # 版本
 
 
@@ -269,6 +277,8 @@ Epoch 10, Time: 21.32 sec, Loss: 0.002288063056766987, Accuracy: 99.930000305175
 
 
 ~~~python
+
+$\text{创建了一个名为“手写体”的文件夹，里面放置了上传的图片，名字即为他们的类别。如一张“9”的图片，它的名字为“9.png”。}$
 
 from PIL import Image
 def img_box(img):
