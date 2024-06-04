@@ -429,6 +429,34 @@ Test accuracy: 0.9717
 
 
 ~~~python
+
+from PIL import Image
+def img_box(img):
+    index=np.where(img)
+    weight=img[index]
+    index_x_mean=np.average(index[1],weights=weight)
+    index_y_mean=np.average(index[0],weights=weight)
+    index_xy_std=np.sqrt(np.average(((index[1]-index_x_mean)**2+(index[0]-index_y_mean)**2)/2,
+                    weights=weight))
+    box=(index_x_mean-3*index_xy_std,index_y_mean-3*index_xy_std,index_x_mean+3*index_xy_std,
+            index_y_mean+3*index_xy_std)
+    return box
+
+
+def normalize_figure(img_path):
+    image0=Image.open(img_path).convert('L')
+    
+    img=np.array(image0)
+    # print(img)
+    img=np.where(img==255,0,255)
+    image=Image.fromarray(img)
+    box=img_box(img)
+    crop_img=image.crop(box)
+    norm_img=crop_img.resize((28,28))
+    # plt.imshow(norm_img,cmap='Greys',interpolation='nearest')
+    # plt.show()
+    return norm_img
+
 import random
 img_paths = ["./手写体/"+str(i)+".png" for i in range(0,10)]
 random.shuffle(img_paths) # 打乱顺序
