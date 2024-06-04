@@ -80,7 +80,8 @@ test_ds = tf.data.Dataset.from_tensor_slices(
 
 
 
-$为了便于寻找模型的最优参数，我们使用网格搜索法遍历每种组合。网格搜索针对超参数组合列表中的每一个组合，实例化给定的模型，做cv次交叉验证，将平均得分最高的超参数组合作为最佳的选择，返回模型对象$。[sklearn网格搜索][https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html#sklearn.model_selection.GridSearchCV]
+$为了便于寻找模型的最优参数，我们使用网格搜索法遍历每种组合。$
+$网格搜索针对超参数组合列表中的每一个组合，实例化给定的模型，做cv次交叉验证，将平均得分最高的超参数组合作为最佳的选择，返回模型对象$
 
 
 
@@ -104,7 +105,7 @@ grid_search = GridSearchCV(svm_model, param_grid, cv=3, verbose=2, n_jobs=-1)
 
 
 
-$最优参数组合为$`'C': 10, 'gamma': 'scale', 'kernel': 'rbf'`$，此时测试结果为98.37%。$
+$最优参数组合为$ `'C': 10, 'gamma': 'scale', 'kernel': 'rbf'` $，此时测试结果为98.37%。$
 
 ~~~python
 Best parameters found:  {'C': 10, 'gamma': 'scale', 'kernel': 'rbf'}
@@ -150,7 +151,7 @@ grid_search = GridSearchCV(knn_model, param_grid, cv=3, verbose=2, n_jobs=-1)
 grid_search.fit(x_train_flat, y_train)
 ~~~
 
-$最优参数组合为$`'n_neighbors': 3, 'weights': 'distance'`$，此时测试结果为97.17%。$
+$最优参数组合为$ `'n_neighbors': 3, 'weights': 'distance'` $，此时测试结果为97.17%。$
 ~~~python
 Fitting 3 folds for each of 6 candidates, totalling 18 fits
 Best parameters found:  {'n_neighbors': 3, 'weights': 'distance'}
