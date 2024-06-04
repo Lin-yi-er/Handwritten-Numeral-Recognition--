@@ -1,6 +1,7 @@
 # Handwritten-Numeral-Recognition--
-$\text{By comparing SVM, CNN, DNN and KNN, we tried to find the optimal model.}$
-$\text{Finally, the uploaded image was passed into the trained model through pre-processing methods such as cutting important areas, and the result was obtained}$
+$\text{By comparing SVM, CNN, DNN and KNN, we tried to find the optimal model.} \\ $
+$\text{Finally, the uploaded image was passed into the trained model through pre-processing methods such as cutting important areas,}\\ $ 
+$\text{and the result was obtained}$
 
 $我们基于minst数据集训练出适用于手写体识别的模型$
 
@@ -9,7 +10,7 @@ $我们基于minst数据集训练出适用于手写体识别的模型$
 
 $\text{just simply run the relevant model file} $
 
-$\text{if you want cnn,just run CNN.py}$
+$\text{if you want CNN's result, just run CNN.py}$
 
 
 # 版本
@@ -251,7 +252,7 @@ class MyModel(Model):
        	return dict(list(base_config.items()) + list(config.items()))
 ~~~
 
-$结果，我们可以看到在第9轮时，测试结果达到最高，约为98.54%。$
+$\text{结果，我们可以看到在第9轮时，测试结果达到最高，约为98.54%。}$
 
 ~~~python
 Epoch 1, Time: 18.38 sec, Loss: 0.1359022557735443, Accuracy: 95.82666778564453, Test Loss: 0.05962755158543587, Test Accuracy: 97.98999786376953
