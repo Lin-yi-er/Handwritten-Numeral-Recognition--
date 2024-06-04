@@ -1,7 +1,8 @@
 # Handwritten-Numeral-Recognition--
-By comparing SVM, CNN, DNN and KNN, we tried to find the optimal model. Finally, the uploaded image was passed into the trained model through pre-processing methods such as cutting important areas, and the result was obtained
+$\text{By comparing SVM, CNN, DNN and KNN, we tried to find the optimal model.}$
+$\text{Finally, the uploaded image was passed into the trained model through pre-processing methods such as cutting important areas, and the result was obtained}$
 
-我们基于minst数据集训练出适用于手写体识别的模型
+$我们基于minst数据集训练出适用于手写体识别的模型$
 
 # 版本
 
@@ -24,12 +25,11 @@ print("TensorFlow version:", tf.__version__)
 ~~~~
 
 $本次实验基于$
-$$
-tensorflow 2.10.0 \\
-1.4.1.post1 \\
-numpy 1.26.4 \\
-matplotlib3.5.1
-$$
+$tensorflow 2.10.0$
+$1.4.1.post1$
+$numpy 1.26.4$
+$matplotlib3.5.1$
+
 
 
 
@@ -80,7 +80,7 @@ test_ds = tf.data.Dataset.from_tensor_slices(
 
 
 
-为了便于寻找模型的最优参数，我们使用网格搜索法遍历每种组合。网格搜索针对超参数组合列表中的每一个组合，实例化给定的模型，做cv次交叉验证，将平均得分最高的超参数组合作为最佳的选择，返回模型对象。[sklearn网格搜索][https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html#sklearn.model_selection.GridSearchCV]
+$为了便于寻找模型的最优参数，我们使用网格搜索法遍历每种组合。网格搜索针对超参数组合列表中的每一个组合，实例化给定的模型，做cv次交叉验证，将平均得分最高的超参数组合作为最佳的选择，返回模型对象$。[sklearn网格搜索][https://scikit-learn.org/stable/modules/generated/sklearn.model_selection.GridSearchCV.html#sklearn.model_selection.GridSearchCV]
 
 
 
@@ -104,7 +104,7 @@ grid_search = GridSearchCV(svm_model, param_grid, cv=3, verbose=2, n_jobs=-1)
 
 
 
-最优参数组合为`'C': 10, 'gamma': 'scale', 'kernel': 'rbf'`，此时测试结果为98.37%。
+$最优参数组合为$`'C': 10, 'gamma': 'scale', 'kernel': 'rbf'`$，此时测试结果为98.37%。$
 
 ~~~python
 Best parameters found:  {'C': 10, 'gamma': 'scale', 'kernel': 'rbf'}
@@ -150,6 +150,7 @@ grid_search = GridSearchCV(knn_model, param_grid, cv=3, verbose=2, n_jobs=-1)
 grid_search.fit(x_train_flat, y_train)
 ~~~
 
+$最优参数组合为$`'n_neighbors': 3, 'weights': 'distance'`$，此时测试结果为97.17%。$
 ~~~python
 Fitting 3 folds for each of 6 candidates, totalling 18 fits
 Best parameters found:  {'n_neighbors': 3, 'weights': 'distance'}
@@ -190,7 +191,7 @@ class DNN(Model):
 
 
 
-结果大概在第四轮达到最大，约为98.69%
+$结果大概在第四轮达到最大，约为97.90%，可以通过设置早停使其在最高值时停止。$
 
 ~~~python
 Epoch 1, Time: 2.11 sec, Loss: 0.22810868918895721, Accuracy: 93.07666778564453, Test Loss: 0.10587550699710846, Test Accuracy: 96.76000213623047
@@ -238,7 +239,7 @@ class MyModel(Model):
        	return dict(list(base_config.items()) + list(config.items()))
 ~~~
 
-结果，我们可以看到在第9轮时，测试结果达到最高，约为98.57%。
+$结果，我们可以看到在第9轮时，测试结果达到最高，约为98.54%。$
 
 ~~~python
 Epoch 1, Time: 18.38 sec, Loss: 0.1359022557735443, Accuracy: 95.82666778564453, Test Loss: 0.05962755158543587, Test Accuracy: 97.98999786376953
@@ -254,17 +255,6 @@ Epoch 10, Time: 21.32 sec, Loss: 0.002288063056766987, Accuracy: 99.930000305175
 313/313 [==============================] - 1s 2ms/step - loss: 0.1009 - accuracy: 0.9813
 ~~~
 
-~~~python
-Fitting 3 folds for each of 6 candidates, totalling 18 fits
-Best parameters found:  {'n_neighbors': 3, 'weights': 'distance'}
-Accuracy: 0.9682 with params: {'n_neighbors': 3, 'weights': 'uniform'}
-Accuracy: 0.9693 with params: {'n_neighbors': 3, 'weights': 'distance'}
-Accuracy: 0.9674 with params: {'n_neighbors': 5, 'weights': 'uniform'}
-Accuracy: 0.9686 with params: {'n_neighbors': 5, 'weights': 'distance'}
-Accuracy: 0.9652 with params: {'n_neighbors': 7, 'weights': 'uniform'}
-Accuracy: 0.9667 with params: {'n_neighbors': 7, 'weights': 'distance'}
-Test accuracy: 0.9717
-~~~
 
 
 
