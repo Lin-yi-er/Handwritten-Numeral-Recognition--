@@ -1,5 +1,5 @@
 # Handwritten-Numeral-Recognition--
-we By comparing SVM, CNN, DNN and KNN, we tried to find the optimal model. Finally, the uploaded image was passed into the trained model through pre-processing methods such as cutting important areas, and the result was obtained
+By comparing SVM, CNN, DNN and KNN, we tried to find the optimal model. Finally, the uploaded image was passed into the trained model through pre-processing methods such as cutting important areas, and the result was obtained
 
 
 # 版本
@@ -190,7 +190,17 @@ test_accuracy = accuracy_score(y_test, y_pred)
 print(f"Test accuracy: {test_accuracy:.4f}")
 ~~~
 
-
+~~~python
+Fitting 3 folds for each of 6 candidates, totalling 18 fits
+Best parameters found:  {'n_neighbors': 3, 'weights': 'distance'}
+Accuracy: 0.9682 with params: {'n_neighbors': 3, 'weights': 'uniform'}
+Accuracy: 0.9693 with params: {'n_neighbors': 3, 'weights': 'distance'}
+Accuracy: 0.9674 with params: {'n_neighbors': 5, 'weights': 'uniform'}
+Accuracy: 0.9686 with params: {'n_neighbors': 5, 'weights': 'distance'}
+Accuracy: 0.9652 with params: {'n_neighbors': 7, 'weights': 'uniform'}
+Accuracy: 0.9667 with params: {'n_neighbors': 7, 'weights': 'distance'}
+Test accuracy: 0.9717
+~~~
 
 
 
